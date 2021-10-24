@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package proto;
+option go_package = "service-tutorial/shared/proto";
+
+// Server Request
+message RegistrationEmailRequest{
+  string email = 1;
+}
+
+// Server Response
+message RegistrationEmailResponse{
+  bool success = 1;
+  string error = 3;
+}
+
+// Define service
+service NotificationService{
+  rpc SendRegistrationEmail(RegistrationEmailRequest) returns (RegistrationEmailResponse) {}
+}
+
+

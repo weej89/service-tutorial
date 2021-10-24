@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./api/docker/Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - notifications
+
+  notifications:
+    build:
+      context: .
+      dockerfile: ./notifications/docker/Dockerfile
+    ports:
+      - "4040:4040"
